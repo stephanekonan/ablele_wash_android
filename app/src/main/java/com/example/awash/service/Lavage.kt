@@ -1,0 +1,1 @@
+package com.example.awash.servicedata class Lavage(    val id: Int,    val lavageName: String,    val localisation: String,    val latitude: Double,    val longitude: Double,    val photo: String,    val heureDebut: String,    val heureFin: String,    val status: String)

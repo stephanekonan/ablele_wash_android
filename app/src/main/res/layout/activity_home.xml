@@ -8,8 +8,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-
-
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mapFragment"
         android:layout_width="match_parent"

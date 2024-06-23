@@ -18,9 +18,13 @@ import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.awash.Lavage.AddLavageTypeActivity
+import com.example.awash.databinding.ActivityMainBinding
+import com.example.awash.service.Lavage
+import com.example.awash.service.LavageService
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -32,6 +36,12 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import www.sanju.motiontoast.MotionToast
 import java.io.IOException
 
 class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -39,12 +49,22 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mGoogleMap: GoogleMap
     private lateinit var location: Location
     private lateinit var fusedLocationClient: FusedLocationProviderClient
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var retrofit: Retrofit
+    private lateinit var service: LavageService
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_home)
+
+        retrofit = Retrofit.Builder()
+            .baseUrl("http://127.0.0.1:8000/api/client/lavages/aproximity")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        service = retrofit.create(LavageService::class.java)
 
         val sheetBottom: FrameLayout = findViewById(R.id.sheetBottom)
         BottomSheetBehavior.from(sheetBottom).apply {
@@ -109,16 +129,40 @@ class HomeActivity : AppCompatActivity(), OnMapReadyCallback {
         mGoogleMap.isMyLocationEnabled = true
         fusedLocationClient.lastLocation.addOnSuccessListener(this) {
             if (it != null) {
-                location = it
-                val currentLatLng = LatLng(location.latitude, location.longitude)
-                placeMarkerOnMap(currentLatLng)
+                val currentLatLng = LatLng(it.latitude, it.longitude)
                 mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f))
+
+                fetchNearbyLavages(it.latitude, it.longitude)
             }
         }
     }
 
-    private fun placeMarkerOnMap(location: LatLng) {
-        val markerOptions = MarkerOptions().position(location)
+    private fun fetchNearbyLavages(latitude: Double, longitude: Double) {
+        val call = service.getNearbyLavages(latitude, longitude, 10)
+        call.enqueue(object : Callback<List<Lavage>> {
+            override fun onResponse(call: Call<List<Lavage>>, response: Response<List<Lavage>>) {
+                if (response.isSuccessful) {
+                    val lavages = response.body()
+                    lavages?.forEach { lavage ->
+                        val position = LatLng(lavage.latitude, lavage.longitude)
+                        placeMarkerOnMap(position, lavage.lavageName)
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<Lavage>>, t: Throwable) {
+                MotionToast.createColorToast(this@HomeActivity,"Erreur lors de la récupération",
+                    MotionToast.TOAST_ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    1000,
+                    ResourcesCompat.getFont(this@HomeActivity, R.font.poppinsregular))
+            }
+        })
+    }
+
+
+    private fun placeMarkerOnMap(location: LatLng, title: String) {
+        val markerOptions = MarkerOptions().position(location).title(title)
         mGoogleMap.addMarker(markerOptions)
     }
 
