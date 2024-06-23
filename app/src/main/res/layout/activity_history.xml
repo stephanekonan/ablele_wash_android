@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Config.HistoryActivity">
+
+    <RelativeLayout
+        android:id="@+id/TollBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="16dp"
+        android:paddingHorizontal="30dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:src="@drawable/menu_icon"
+            app:tint="@color/black"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/back_icon"
+            android:layout_alignBaseline="@id/back_icon"
+            android:layout_marginStart="15dp"
+            android:text="Historique de lavage"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsregular"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/TollBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="vertical"
+            >
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:columnCount="5"
+                android:elevation="3dp"
+                tools:ignore="UselessParent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_columnSpan="1"
+                    android:layout_rowSpan="1"
+                    android:layout_columnWeight="1"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="10dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/car_blue"
+                        android:scaleType="centerCrop"
+                        tools:ignore="ContentDescription,HardcodedText" />
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_rowSpan="1"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    tools:ignore="TextSizeCheck">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="23 Otobre 2023 à 17H03"
+                        android:textColor="@color/blue_gray"
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText,SmallSp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="Lavage Lacina"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-5dp"
+                            android:fontFamily="@font/poppinssemibold"
+                            android:text="Lavage automatique"
+                            android:textColor="@color/blue_gray"
+                            android:textSize="12sp"
+                            tools:ignore="HardcodedText" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_rowSpan="1"
+                    android:layout_columnSpan="1"
+                    android:background="@color/white"
+                    android:layout_columnWeight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingVertical="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="8dp"
+                                android:background="@drawable/custom_state_en_cours"
+                                android:text="en cours"
+                                android:gravity="center"
+                                android:textSize="12sp"
+                                android:textColor="@color/orange_en_cours"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-5dp"
+                            android:text="1500 XOF"
+                            android:textColor="@color/blue_gray"
+                            android:fontFamily="@font/poppinsbold"
+                            android:textSize="12sp"
+                            android:gravity="end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:ignore="HardcodedText,SmallSp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:columnCount="5"
+                android:elevation="3dp"
+                tools:ignore="UselessParent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_columnSpan="1"
+                    android:layout_rowSpan="1"
+                    android:layout_columnWeight="1"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="10dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/car_blue"
+                        android:scaleType="centerCrop"
+
+                        tools:ignore="ContentDescription,HardcodedText" />
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_rowSpan="1"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    tools:ignore="TextSizeCheck">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="23 Otobre 2023 à 17H03"
+                        android:textColor="@color/blue_gray"
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText,SmallSp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="MC Lavage"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-5dp"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="Lavage à sec"
+                            android:textColor="@color/blue_gray"
+                            android:textSize="12sp"
+                            tools:ignore="HardcodedText" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_rowSpan="1"
+                    android:layout_columnSpan="1"
+                    android:background="@color/white"
+                    android:layout_columnWeight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingVertical="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="8dp"
+                                android:background="@drawable/custom_state_done"
+                                android:text="terminé"
+                                android:gravity="center"
+                                android:textSize="12sp"
+                                android:textColor="@color/green_awash"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-5dp"
+                            android:text="500 XOF"
+                            android:textColor="@color/blue_gray"
+                            android:fontFamily="@font/poppinsbold"
+                            android:textSize="12sp"
+                            android:gravity="end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:ignore="HardcodedText,SmallSp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </GridLayout>
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:columnCount="5"
+                android:elevation="3dp"
+                tools:ignore="UselessParent">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_columnSpan="1"
+                    android:layout_rowSpan="1"
+                    android:layout_columnWeight="1"
+                    app:cardElevation="0dp"
+                    app:cardCornerRadius="10dp">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/car_blue"
+                        android:scaleType="centerCrop"
+
+                        tools:ignore="ContentDescription,HardcodedText" />
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_rowSpan="1"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="2"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    tools:ignore="TextSizeCheck">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="23 Otobre 2023 à 17H03"
+                        android:textColor="@color/blue_gray"
+                        android:textSize="10sp"
+                        tools:ignore="HardcodedText,SmallSp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="Total Lavage"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            tools:ignore="HardcodedText" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-5dp"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="Lavage à complet"
+                            android:textColor="@color/blue_gray"
+                            android:textSize="12sp"
+                            tools:ignore="HardcodedText" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_rowSpan="1"
+                    android:layout_columnSpan="1"
+                    android:background="@color/white"
+                    android:layout_columnWeight="1">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingVertical="12dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:gravity="end"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingHorizontal="8dp"
+                                android:background="@drawable/custom_state_cancel"
+                                android:text="annulé"
+                                android:gravity="center"
+                                android:textSize="12sp"
+                                android:textColor="@color/red_awash"
+                                tools:ignore="HardcodedText" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-5dp"
+                            android:text="2000 XOF"
+                            android:textColor="@color/blue_gray"
+                            android:fontFamily="@font/poppinsbold"
+                            android:textSize="12sp"
+                            android:gravity="end"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:ignore="HardcodedText,SmallSp"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </GridLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

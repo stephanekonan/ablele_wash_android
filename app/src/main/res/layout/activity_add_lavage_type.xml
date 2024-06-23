@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Lavage.AddLavageTypeActivity">
+
+    <RelativeLayout
+        android:id="@+id/TollBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="30dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:id="@+id/iconBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/arrow_back_icon"
+            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Type de lavage"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppinsbold"
+            android:layout_centerInParent="true"
+            tools:ignore="HardcodedText" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/message_type_lavage"
+                android:textColor="@color/black"
+                android:fontFamily="@font/poppinsmedium"
+                android:textSize="20sp"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <RadioButton
+                    android:id="@+id/type1"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="1dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:paddingHorizontal="15dp"
+                    android:text="Lavage à eau"
+                    android:textColor="@drawable/text_color"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/type2"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="1dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:paddingHorizontal="15dp"
+                    android:text="Lavage automatique"
+                    android:textColor="@drawable/text_color"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/type3"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="1dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:paddingHorizontal="15dp"
+                    android:text="Lavage à sec"
+                    android:textColor="@drawable/text_color"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+                <RadioButton
+                    android:id="@+id/type4"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/radio_selector"
+                    android:button="@android:color/transparent"
+                    android:elevation="1dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:paddingHorizontal="15dp"
+                    android:text="Lavage à vapeur"
+                    android:textColor="@drawable/text_color"
+                    android:textSize="18sp"
+                    tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/prixLayout"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp"
+                android:paddingVertical="15dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:background="@drawable/custom_bg_prix_type">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="Le lavage vous coûtera"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/gray_icon"
+                    tools:ignore="HardcodedText,SmallSp" />
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:gravity="center"
+                    android:text="5000 XOF"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/poppinsbold"
+                    android:textColor="@color/blue_primary"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/saveTypeButton"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/custom_btn"
+        android:text="Valider"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

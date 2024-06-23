@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="blue_primary">#2B56A3</color>
+    <color name="blue_primary_light">#1A2B56A3</color>
+    <color name="blue_gray">#405E93</color>
+    <color name="blue_green_light">#39B8D3</color>
+    <color name="blue_light">#E5F2FF</color>
+    <color name="gray_awash">#777777</color>
+    <color name="gray_icon">#383838</color>
+
+    <color name="yellow_awash">#F2D41E</color>
+    <color name="yellow_light_awash">#1AF2D41E</color>
+    <color name="green_awash">#049424</color>
+    <color name="orange_en_cours">#FF9900</color>
+    <color name="red_awash">#FF000F</color>
+
+</resources>
