@@ -1,0 +1,1 @@
+package com.example.awash.Config.Modelsdata class Vehicule (    val id: Int,    val marque: Int,    val type: Int,    val color: String,    val point: Double,    val photo: String,)

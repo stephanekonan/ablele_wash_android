@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Lavage.AddLavageTypeActivity">
+    tools:context=".Activities.Lavage.AddLavageTypeActivity">
 
     <RelativeLayout
         android:id="@+id/TollBar"
@@ -177,6 +177,5 @@
         android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:ignore="HardcodedText,TouchTargetSizeCheck,VisualLintButtonSize" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

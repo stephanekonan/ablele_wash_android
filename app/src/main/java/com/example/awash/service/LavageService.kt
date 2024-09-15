@@ -1,1 +1,0 @@
-package com.example.awash.serviceimport retrofit2.Callimport retrofit2.http.GETimport retrofit2.http.Queryinterface LavageService {    @GET("/client/lavages/aproximity")    fun getNearbyLavages(        @Query("latitude") latitude: Double,        @Query("longitude") longitude: Double,        @Query("radius") radius: Int    ): Call<List<Lavage>>}

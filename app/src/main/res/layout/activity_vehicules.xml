@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Vehicule.VehiculesActivity">
+    tools:context=".Activities.Vehicule.VehiculesActivity">
 
     <RelativeLayout
         android:id="@+id/TollBar"
@@ -18,7 +18,7 @@
         tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/back_icon"
+            android:id="@+id/iconMenu"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:src="@drawable/menu_icon"
@@ -29,8 +29,8 @@
             android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/back_icon"
-            android:layout_alignBaseline="@id/back_icon"
+            android:layout_toEndOf="@id/iconMenu"
+            android:layout_alignBaseline="@id/iconMenu"
             android:layout_marginStart="15dp"
             android:text="Mes véhicules"
             android:textSize="20sp"
@@ -41,6 +41,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/firstLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -48,407 +49,188 @@
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/TollBar">
 
-        <GridLayout
+        <androidx.cardview.widget.CardView
+            android:onClick="expand"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_gravity="center"
-            android:columnCount="5"
-            android:elevation="3dp"
-            tools:ignore="UselessParent">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_columnSpan="1"
-                android:layout_rowSpan="1"
-                android:layout_columnWeight="1"
-                app:cardElevation="0dp"
-                app:cardCornerRadius="10dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/car_blue"
-                    android:scaleType="centerCrop"
-                    tools:ignore="ContentDescription,HardcodedText" />
-
-            </androidx.cardview.widget.CardView>
+            android:padding="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_rowSpan="1"
-                android:layout_columnSpan="2"
-                android:layout_columnWeight="2"
+                android:id="@+id/layoutBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="10dp"
-                tools:ignore="TextSizeCheck">
+                android:padding="10dp">
 
-                <TextView
+                <GridLayout
+                    android:id="@+id/cardData"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="23 Otobre 2023 à 17H03"
-                    android:textColor="@color/blue_gray"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:columnCount="5"
+                    android:elevation="3dp"
+                    tools:ignore="UselessParent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_columnWeight="1"
+                        app:cardElevation="0dp"
+                        app:cardCornerRadius="10dp">
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/car_blue"
+                            android:scaleType="centerCrop"
+                            tools:ignore="ContentDescription,HardcodedText" />
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="80dp"
+                        android:layout_rowSpan="1"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        tools:ignore="TextSizeCheck">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="23 Otobre 2023 à 17H03"
+                            android:textColor="@color/blue_gray"
+                            android:textSize="10sp"
+                            tools:ignore="HardcodedText,SmallSp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppinsextrabold"
+                                android:text="Mercedes"
+                                android:textColor="@color/black"
+                                android:textSize="18sp"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="-5dp"
+                                android:fontFamily="@font/poppinsregular"
+                                android:text="Benz GLC"
+                                android:textColor="@color/blue_gray"
+                                android:textSize="12sp"
+                                tools:ignore="HardcodedText" />
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_columnWeight="1">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="15"
+                            android:textColor="@color/blue_primary"
+                            android:textSize="30dp"
+                            android:fontFamily="@font/poppinsextrabold"
+                            tools:ignore="HardcodedText,SpUsage" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-20dp"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="points"
+                            android:textColor="@color/blue_primary"
+                            android:textSize="12dp"
+                            tools:ignore="TextSizeCheck" />
+
+                    </LinearLayout>
+
+                </GridLayout>
 
                 <LinearLayout
+                    android:id="@+id/btnLayout"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
 
-                    <TextView
+                    <GridLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppinsextrabold"
-                        android:text="Mercedes"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        tools:ignore="HardcodedText" />
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:columnCount="2">
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-5dp"
-                        android:fontFamily="@font/poppinsregular"
-                        android:text="Benz GLC"
-                        android:textColor="@color/blue_gray"
-                        android:textSize="12sp"
-                        tools:ignore="HardcodedText" />
+                        <Button
+                            android:id="@+id/btnDelete"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginEnd="5dp"
+                            android:text="Supprimer"
+                            android:textColor="@color/blue_primary"
+                            android:layout_columnWeight="1"
+                            android:background="@drawable/custom_without_fill"
+                            tools:ignore="HardcodedText" />
 
+                        <Button
+                            android:id="@+id/btnEdit"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="5dp"
+                            android:layout_columnWeight="1"
+                            android:text="Modifier"
+                            android:textColor="@color/white"
+                            android:background="@drawable/custom_btn"
+                            tools:ignore="HardcodedText" />
+
+                    </GridLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_rowSpan="1"
-                android:layout_columnSpan="1"
-                android:background="@color/white"
-                android:layout_columnWeight="1">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingVertical="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:gravity="end"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:orientation="horizontal">
-
-                        <ImageButton
-                            android:layout_width="12sp"
-                            android:layout_height="12sp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/edit_icon"
-                            tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck,ImageContrastCheck" />
-
-                        <ImageButton
-                            android:layout_width="12sp"
-                            android:layout_height="12sp"
-                            android:layout_marginStart="10dp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/delete_icon"
-                            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-5dp"
-                        android:text="AA1201-01"
-                        android:textColor="@color/blue_gray"
-                        android:fontFamily="@font/poppinsregular"
-                        android:textSize="12sp"
-                        android:gravity="end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        tools:ignore="HardcodedText,SmallSp"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-        </GridLayout>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"
-            android:columnCount="5"
-            android:elevation="3dp"
-            tools:ignore="UselessParent">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_columnSpan="1"
-                android:layout_rowSpan="1"
-                android:layout_columnWeight="1"
-                app:cardElevation="0dp"
-                app:cardCornerRadius="10dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/car_blue"
-                    android:scaleType="centerCrop"
-
-                    tools:ignore="ContentDescription,HardcodedText" />
-
-            </androidx.cardview.widget.CardView>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_rowSpan="1"
-                android:layout_columnSpan="2"
-                android:layout_columnWeight="2"
-                android:orientation="vertical"
-                android:padding="10dp"
-                tools:ignore="TextSizeCheck">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="23 Otobre 2023 à 17H03"
-                    android:textColor="@color/blue_gray"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppinsextrabold"
-                        android:text="Mercedes"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        tools:ignore="HardcodedText" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-5dp"
-                        android:fontFamily="@font/poppinsregular"
-                        android:text="Benz GLC"
-                        android:textColor="@color/blue_gray"
-                        android:textSize="12sp"
-                        tools:ignore="HardcodedText" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_rowSpan="1"
-                android:layout_columnSpan="1"
-                android:background="@color/white"
-                android:layout_columnWeight="1">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingVertical="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:gravity="end"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:orientation="horizontal">
-
-                        <ImageButton
-                            android:layout_width="12sp"
-                            android:layout_height="12sp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/edit_icon"
-                            tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck,ImageContrastCheck" />
-
-                        <ImageButton
-                            android:layout_width="12sp"
-                            android:layout_height="12sp"
-                            android:layout_marginStart="10dp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/delete_icon"
-                            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-5dp"
-                        android:text="AA1201-01"
-                        android:textColor="@color/blue_gray"
-                        android:fontFamily="@font/poppinsregular"
-                        android:textSize="12sp"
-                        android:gravity="end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        tools:ignore="HardcodedText,SmallSp"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-        </GridLayout>
-
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="center"
-            android:columnCount="5"
-            android:elevation="3dp"
-            tools:ignore="UselessParent">
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_columnSpan="1"
-                android:layout_rowSpan="1"
-                android:layout_columnWeight="1"
-                app:cardElevation="0dp"
-                app:cardCornerRadius="10dp">
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/car_blue"
-                    android:scaleType="centerCrop"
-
-                    tools:ignore="ContentDescription,HardcodedText" />
-
-            </androidx.cardview.widget.CardView>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_rowSpan="1"
-                android:layout_columnSpan="2"
-                android:layout_columnWeight="2"
-                android:orientation="vertical"
-                android:padding="10dp"
-                tools:ignore="TextSizeCheck">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="23 Otobre 2023 à 17H03"
-                    android:textColor="@color/blue_gray"
-                    android:textSize="10sp"
-                    tools:ignore="HardcodedText,SmallSp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppinsextrabold"
-                        android:text="Mercedes"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        tools:ignore="HardcodedText" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-5dp"
-                        android:fontFamily="@font/poppinsregular"
-                        android:text="Benz GLC"
-                        android:textColor="@color/blue_gray"
-                        android:textSize="12sp"
-                        tools:ignore="HardcodedText" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_rowSpan="1"
-                android:layout_columnSpan="1"
-                android:background="@color/white"
-                android:layout_columnWeight="1">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingVertical="12dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:gravity="end"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:orientation="horizontal">
-
-                        <ImageButton
-                            android:layout_width="12sp"
-                            android:layout_height="12sp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/edit_icon"
-                            tools:ignore="ContentDescription,TouchTargetSizeCheck,SpeakableTextPresentCheck,ImageContrastCheck" />
-
-                        <ImageButton
-                            android:layout_width="12sp"
-                            android:layout_height="12sp"
-                            android:layout_marginStart="10dp"
-                            android:background="@android:color/transparent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/delete_icon"
-                            tools:ignore="ContentDescription,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="-5dp"
-                        android:text="AA1201-01"
-                        android:textColor="@color/blue_gray"
-                        android:fontFamily="@font/poppinsregular"
-                        android:textSize="12sp"
-                        android:gravity="end"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        tools:ignore="HardcodedText,SmallSp"/>
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </LinearLayout>
-
-        </GridLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addNewVehiculeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:scaleType="center"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="@color/blue_primary"
+        app:elevation="6dp"
+        app:maxImageSize="30dp"
+        app:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="ContentDescription,MissingConstraints,SpeakableTextPresentCheck" />
 
  </androidx.constraintlayout.widget.ConstraintLayout>

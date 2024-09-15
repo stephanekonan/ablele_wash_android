@@ -9,7 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.awash.Auth.LoginActivity
+import com.example.awash.Activities.Auth.LoginActivity
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")

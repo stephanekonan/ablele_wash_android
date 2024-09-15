@@ -3,6 +3,8 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF000F</color>
+    <color name="orange">#FF9800</color>
 
     <color name="blue_primary">#2B56A3</color>
     <color name="blue_primary_light">#1A2B56A3</color>

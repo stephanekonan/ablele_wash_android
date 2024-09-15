@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".Lavage.DetailsLavageActivity">
+    tools:context=".Activities.Lavage.DetailsLavageActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
